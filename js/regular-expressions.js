@@ -50,10 +50,27 @@ re = /gre?a?y/i   // === OPTIONAL CHAR
 re = /gre?a?y\?/i   // === ESCAPE CHAR
 
 
+///////// ================= CHARACTER SETS & QUANTIFIERS
+//BRACKETS [] - CHAR SETS
+re = /gr[ae]y/i   // === OPTIONAL A OR E CHAR
+re = /[GF]ray/;   // === OPTIONAL G OR F CHAR
+re = /[^GF]ray/i;   // === OPTIONAL ANYTHING EXCEPT G OR F CHAR
+re = /[A-Z]ray/;   // === OPTIONAL ANY UPPERCASE CHAR
+re = /[a-z]ray/;   // === OPTIONAL ANY LOWERCASE CHAR
+re = /[A-Za-z]ray/;   // === OPTIONAL ANY CASE CHAR
+re = /[0-9]ray/; //===== OPTIONAL ANY DIGIT
 
+
+//BRACES {} - QUANTIFIERS
+re = /Hel{2}o/i;  //===== MATCH {AMOUNT} OF DIGITS
+re = /Hel{2,4}o/i;  //===== MATCH {AMOUNT} OF DIGITS
+re = /Hel{2,}o/i;  //===== MATCH AT LEAST {AMOUNT} OF DIGITS
+
+//PARENTHESES () - GROUPING
+re = /([0-9]x){3}/
 
 //STRING TO MATCH
-const str = 'Grey?';
+const str = '3x3x3x';
 
 //LOG RESULTS
 const result = re.exec(str);
