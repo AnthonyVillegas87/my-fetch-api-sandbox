@@ -1,6 +1,8 @@
 "use strict"
-//INIT Github
+//INIT Github CLASS
 const github = new Github();
+//INIT UI CLASS
+const ui = new UI();
 
 // Input search
 const searchUser = document.getElementById('searchUser');
@@ -19,7 +21,7 @@ searchUser.addEventListener('keyup', (e) => {
 
               } else {
                 //Show Profile
-
+                ui.showProfile(data.profile);
               }
             })
     } else {
