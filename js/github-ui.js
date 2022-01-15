@@ -3,7 +3,7 @@ class UI {
     constructor() {
        this.profile = document.getElementById('profile');
     }
-
+//display profile
     showProfile(user) {
        this.profile.innerHTML = `
        <div class="card card-body mb-3">
@@ -30,5 +30,41 @@ class UI {
         <h3 class="page-heading mb-3">Latest Repos</h3>
         <div id="repos"></div>
        `;
+    }
+
+    //Show alert message
+    showAlert(message, className) {
+        //Clear any remaining alerts
+        this.clearAlert();
+        //Create div
+        const div = document.createElement('div');
+        //Add class
+        div.className = className;
+        //Add text
+        div.appendChild(document.createTextNode(message));
+        //GET parent element
+        const container = document.querySelector('.searchContainer');
+        //GET search input
+        const search = document.querySelector('.search');
+        //Append alert message
+        container.insertBefore(div, search);
+
+        //Timeout after 3 sec
+        setTimeout(() => {
+            this.clearAlert();
+        }, 3000);
+    }
+
+    //Clear alert message
+    clearAlert() {
+        const currentAlert = document.querySelector('.alert');
+
+        if(currentAlert) {
+            currentAlert.remove();
+        }
+    }
+    //clear profile
+    clearProfile() {
+        this.profile.innerHTML = '';
     }
 }
