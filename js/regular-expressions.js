@@ -69,8 +69,24 @@ re = /Hel{2,}o/i;  //===== MATCH AT LEAST {AMOUNT} OF DIGITS
 //PARENTHESES () - GROUPING
 re = /([0-9]x){3}/
 
+
+//SHORTHAND CHAR CLASSES
+re = /\w/;  //WORD CHAR - ALPHANUMERIC 0R _
+re = /\w+/;  // + = ONE OR MORE
+re = /\W/;  //NON-WORD CHAR - ALPHANUMERIC 0R _
+re = /\d/;  //MATCH ANY DIGIT
+re = /\d+/;  //MATCH ANY DIGIT 0 OR MORE
+re = /\D/;  //MATCH ANY NON-DIGIT
+re = /\s/;  //MATCH WHITESPACE CHAR
+re = /\S/;  //MATCH NON-WHITESPACE CHAR
+re = /Hell\b/i;  //WORD BOUNDARY
+
+//ASSERTIONS
+re = /x(?=y)/  //MATCH X ONLY IF FOLLOWED BY Y
+
+
 //STRING TO MATCH
-const str = '3x3x3x';
+const str = 'Hello';
 
 //LOG RESULTS
 const result = re.exec(str);
